@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --warna-utama: #3498db;
+    --warna-kedua: #2ecc71;
+    --warna-latar: #f0f9ff;
+    --warna-teks: #333;
+    --bayangan: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--warna-latar);
+    color: var(--warna-teks);
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    background-color: var(--warna-utama);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: var(--bayangan);
+}
+
+#waktu-sekarang {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+nav {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav button {
+    background-color: white;
+    color: var(--warna-utama);
+    border: 2px solid var(--warna-utama);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav button:hover, nav button.aktif {
+    background-color: var(--warna-utama);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.halaman {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--bayangan);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tombol-besar {
+    background-color: var(--warna-kedua);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.tombol-besar:hover {
+    transform: scale(1.05);
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--warna-utama);
+    color: white;
+}
+
+select, input[type="text"], input[type="number"] {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.grup-tombol-ekspor {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}

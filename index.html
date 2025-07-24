@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Digital Siswa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>🎓 Absensi Digital</h1>
+    <div id="waktu-sekarang"></div>
+</header>
+
+<nav>
+    <button onclick="tampilkanHalaman('beranda')">Beranda</button>
+    <button onclick="tampilkanHalaman('data-siswa')">Data Siswa</button>
+    <button onclick="tampilkanHalaman('absensi')">Absensi</button>
+    <button onclick="tampilkanHalaman('rekap')">Rekap</button>
+</nav>
+
+<main>
+    <div id="beranda" class="halaman">
+        <h2>Selamat Datang!</h2>
+        <p>Aplikasi absensi siswa sederhana untuk mencatat kehadiran setiap hari.</p>
+        <button class="tombol-besar" onclick="tampilkanHalaman('absensi')">🚀 Mulai Absensi Hari Ini</button>
+    </div>
+
+    <div id="data-siswa" class="halaman" style="display:none;">
+        <h2>Data Siswa</h2>
+        <button onclick="tampilkanFormSiswa()">+ Tambah Siswa</button>
+        <table>
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>NIS</th>
+                <th>Kelas</th>
+                <th>Aksi</th>
+            </tr>
+            </thead>
+            <tbody id="tabel-siswa">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="absensi" class="halaman" style="display:none;">
+        <h2>Absensi Siswa</h2>
+        <label for="pilih-kelas-absen">Pilih Kelas:</label>
+        <select id="pilih-kelas-absen" onchange="tampilkanSiswaUntukAbsen()"></select>
+        <div id="daftar-absen-siswa"></div>
+        <button onclick="simpanAbsensi()">Simpan Absensi</button>
+    </div>
+
+    <div id="rekap" class="halaman" style="display:none;">
+        <h2>Rekap Absensi</h2>
+        <label for="pilih-kelas-rekap">Filter per Kelas:</label>
+        <select id="pilih-kelas-rekap" onchange="tampilkanRekap()"></select>
+        <div class="grup-tombol-ekspor">
+            <button onclick="eksporKeExcel()">Ekspor ke Excel 📊</button>
+            <button onclick="eksporKePDF()">Ekspor ke PDF 📄</button>
+        </div>
+        <table id="tabel-rekap">
+            <thead>
+            <tr>
+                <th>Tanggal</th>
+                <th>Nama</th>
+                <th>Kelas</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody id="data-rekap">
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
